@@ -20,18 +20,30 @@ jobs:
 
     # ย้าย steps เข้ามาอยู่ภายใต้ build-test (เคาะ space เข้าไป 4 ตัว)
     steps:
-      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+    - uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
 
-      - name: Run Tests
-        run: |
-          python manage.py test
+    - name: Set up Python
+
+      uses: actions/setup-python@v5
+
+      with:
+
+        python-version: "3.11"
+
+
+    - name: Install Dependencies
+
+      run: |
+
+        python -m pip install --upgrade pip
+
+        pip install -r requirements.txt
+
+
+    - name: Run Tests
+
+      run: |
+
+        python manage.py test
