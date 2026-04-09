@@ -30,7 +30,7 @@ jobs:
       run:
 
         working-directory: ./backend 
-steps:
+  steps:
     - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v5
