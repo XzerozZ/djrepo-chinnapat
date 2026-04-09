@@ -16,7 +16,7 @@ function App() {
       <h1 className="text-3xl font-bold mb-6 text-center text-blue-600">Resume Hub</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {resumes.map(resume => (
-          <div key={resume.id} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+          <div key={resume.id} className="bg-black p-6 rounded-lg shadow-lg hover:shadow-xl transition">
             <h2 className="text-xl font-bold">{resume.title}</h2>
             <p className="text-gray-600">{resume.summary}</p>
             <div className="mt-4 flex flex-wrap gap-2">
