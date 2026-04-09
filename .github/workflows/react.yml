@@ -5,12 +5,10 @@ on:
     branches: [ "wk05" ]
     paths:
       - "frontend/**" # เฉพาะไฟล์ Frontend
-
   pull_request:
     branches: [ "wk05" ]
     paths:
       - "frontend/**"
-
 
 jobs:
   build:
@@ -19,17 +17,22 @@ jobs:
       run:
         working-directory: ./frontend
 
-  steps:
-    - uses: actions/checkout@v4
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: "18"
-        cache: "npm"
-        cache-dependency-path: frontend/package-lock.json
-    - name: Install Dependencies
-      run: npm ci
-    - name: Build
-      run: npm run build
-      env:
-        CI: false
+    # ขยับ steps เข้ามาให้ตรงกับ runs-on/defaults (เยื้องเข้ามา 4 spaces)
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+          # ใส่ path ให้ถูกเพื่อให้ระบบจัดการ cache ได้แม่นยำ
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          CI: false
